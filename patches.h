@@ -1072,7 +1072,8 @@
  */
 #define SELFRESTART_PATCH 0
 
-/* Allows restarting dwm after recompilation.
+/* Added this because sometimes the selfrestart function does nothing.
+ * Setting the path to a static string fixes it.
  * Only relevant if SELFRESTART_PATCH is enabled.
  */
 #define SELFRESTART_STATIC_PATH_PATCH 0
