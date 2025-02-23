@@ -60,7 +60,7 @@ static const int showtab                 = showtab_auto;        /* Default tab b
 static const int toptab                  = False;               /* False means bottom tab bar */
 #endif // TAB_PATCH
 #if BAR_HEIGHT_PATCH
-static const int bar_height              = 30;   /* 0 means derive from font, >= 1 explicit height */
+static const int bar_height              = 35;   /* 0 means derive from font, >= 1 explicit height */
 #endif // BAR_HEIGHT_PATCH
 #if BAR_PADDING_PATCH
 static const int vertpad                 = 10;  /* vertical padding of bar */
@@ -906,6 +906,14 @@ static const Key on_empty_keys[] = {
 };
 #endif // ON_EMPTY_KEYS_PATCH
 
+// --- CUSTOM COMMANDS START ---
+static const char *upvol[] = {"amixer", "set", "Master", "5%+", NULL};
+static const char *downvol[] = {"amixer", "set", "Master", "5%-", NULL};
+static const char *mutevol[] = {"amixer", "set", "Master", "toggle", NULL};
+static const char *screenshot[] = {"flameshot", "gui", NULL};
+static const char *clearnotifs[] = {"dunstctl", "close-all", NULL};
+// --- CUSTOM COMMANDS END   ---
+
 static const Key keys[] = {
 	/* modifier                     key            function                argument */
 	#if KEYMODES_PATCH
@@ -1303,6 +1311,13 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_F2,         mpdchange,              {.i = +1} },
 	{ MODKEY,                       XK_Escape,     mpdcontrol,             {0} },
 	#endif // MPDCONTROL_PATCH
+	// --- CUSTOM KEYS START ---
+	{MODKEY,                        XK_F9,         spawn,                  {.v = mutevol}},
+	{MODKEY,                        XK_F11,        spawn,                  {.v = downvol}},
+	{MODKEY,                        XK_F12,        spawn,                  {.v = upvol}},
+	{MODKEY,                        XK_c, 		   spawn, 				   {.v = clearnotifs}},
+	{0, 							XK_Print, 	   spawn, 				   {.v = screenshot}},
+	// --- CUSTOM KEYS END   ---
 	TAGKEYS(                        XK_1,                                  0)
 	TAGKEYS(                        XK_2,                                  1)
 	TAGKEYS(                        XK_3,                                  2)
