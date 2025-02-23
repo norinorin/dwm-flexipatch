@@ -413,6 +413,11 @@
  */
 #define BAR_STATUSALLMONS_PATCH 0
 
+/* This patch inverts the selected monitor's ltsymbol.
+ * Useful when using either BAR_STATICSTATUS_PATCH or BAR_STATUSALLMONS_PATCH.
+ */
+#define INVERT_SELMON_LTSYMBOL 0
+
 /* This patch enables colored text in the status bar. It changes the way colors are defined
  * in config.h allowing multiple color combinations for use in the status script.
  * This patch is incompatible with and takes precedence over the status2d patch.
