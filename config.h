@@ -4,6 +4,15 @@
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 #define CMD(...)   { .v = (const char*[]){ __VA_ARGS__, NULL } }
 
+/* Shortcuts to multimedia keys */
+#include <X11/XF86keysym.h>  // yay -S libx11
+#define XK_MUTE    XF86XK_AudioMute
+#define XK_VOLDOWN XF86XK_AudioLowerVolume
+#define XK_VOLUP   XF86XK_AudioRaiseVolume
+#define XK_PLAY    XF86XK_AudioPlay
+#define XK_NEXT    XF86XK_AudioNext
+#define XK_PREV    XF86XK_AudioPrev
+
 /* appearance */
 #if ROUNDED_CORNERS_PATCH
 static const unsigned int borderpx       = 0;   /* border pixel of windows */
@@ -910,6 +919,9 @@ static const Key on_empty_keys[] = {
 static const char *upvol[] = {"amixer", "set", "Master", "5%+", NULL};
 static const char *downvol[] = {"amixer", "set", "Master", "5%-", NULL};
 static const char *mutevol[] = {"amixer", "set", "Master", "toggle", NULL};
+static const char *playpause[] = {"playerctl", "play-pause", NULL};
+static const char *next[] = {"playerctl", "next", NULL};
+static const char *previous[] = {"playerctl", "previous", NULL};
 static const char *screenshot[] = {"flameshot", "gui", NULL};
 static const char *clearnotifs[] = {"dunstctl", "close-all", NULL};
 // --- CUSTOM COMMANDS END   ---
@@ -1315,6 +1327,12 @@ static const Key keys[] = {
 	{MODKEY,                        XK_F9,         spawn,                  {.v = mutevol}},
 	{MODKEY,                        XK_F11,        spawn,                  {.v = downvol}},
 	{MODKEY,                        XK_F12,        spawn,                  {.v = upvol}},
+	{0,                             XK_MUTE,       spawn,                  {.v = mutevol}},
+	{0,                             XK_VOLDOWN,    spawn,                  {.v = downvol}},
+	{0,                             XK_VOLUP,      spawn,                  {.v = upvol}},
+	{0,                             XK_PLAY,       spawn,                  {.v = playpause}},
+	{0,                             XK_PREV,       spawn,                  {.v = previous}},
+	{0,                             XK_NEXT,       spawn,                  {.v = next}},
 	{MODKEY,                        XK_c, 		   spawn, 				   {.v = clearnotifs}},
 	{0, 							XK_Print, 	   spawn, 				   {.v = screenshot}},
 	// --- CUSTOM KEYS END   ---
