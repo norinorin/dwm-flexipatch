@@ -14,6 +14,9 @@
  */
 char *get_dwm_path()
 {
+#if SELFRESTART_STATIC_PATH_PATCH
+    return "/usr/local/bin/dwm";
+#else
     struct stat s;
     int r, length, rate = 42;
     char *path = NULL;
@@ -48,6 +51,7 @@ char *get_dwm_path()
     path[r] = '\0';
 
     return path;
+#endif
 }
 
 /**

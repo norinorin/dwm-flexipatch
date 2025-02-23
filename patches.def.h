@@ -1072,6 +1072,11 @@
  */
 #define SELFRESTART_PATCH 0
 
+/* Allows restarting dwm after recompilation.
+ * Only relevant if SELFRESTART_PATCH is enabled.
+ */
+#define SELFRESTART_STATIC_PATH_PATCH 0
+
 /* Floating windows being sent to another monitor will be centered.
  * https://dwm.suckless.org/patches/sendmoncenter/
  */
