@@ -421,7 +421,13 @@
 /* This patch inverts the selected monitor's ltsymbol.
  * Useful when using either BAR_STATICSTATUS_PATCH or BAR_STATUSALLMONS_PATCH.
  */
-#define INVERT_SELMON_LTSYMBOL 1
+#define INVERT_SELMON_LTSYMBOL 0
+
+/* If INVERT_SELMON_LTSYMBOL is undesirable, you can try this patch which only sets
+ * the selected window scheme on active monitor.
+ * Currently only works with awesomebar. Will try to add support for other bars as I use them.
+ */
+#define BAR_ONLY_HIGHLIGHT_TITLE_ON_SELMON_PATCH 1
 
 /* This patch enables colored text in the status bar. It changes the way colors are defined
  * in config.h allowing multiple color combinations for use in the status script.

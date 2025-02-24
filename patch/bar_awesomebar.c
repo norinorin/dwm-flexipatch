@@ -40,7 +40,11 @@ draw_awesomebar(Bar *bar, BarArg *a)
 				scm = SchemeHidSel;
 			else if (HIDDEN(c))
 				scm = SchemeHidNorm;
-			else if (bar->mon->sel == c)
+			else if ((bar->mon->sel == c)
+#if BAR_ONLY_HIGHLIGHT_TITLE_ON_SELMON_PATCH
+				&& bar->mon == selmon
+#endif
+			)
 				scm = SchemeTitleSel;
 			else
 				scm = SchemeTitleNorm;
