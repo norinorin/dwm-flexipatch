@@ -158,6 +158,11 @@
  */
 #define BAR_STATUS2D_PATCH 1
 
+/* Disable text padding at the edge of the status bar.
+ * Only do this if you manage your own padding in the status bar text.
+ */
+#define BAR_STATUS2D_NO_PADDING_PATCH 1
+
 /* Supplementary patch should you want to disable alpha for the status2d section */
 #define BAR_STATUS2D_NO_ALPHA_PATCH 0
 

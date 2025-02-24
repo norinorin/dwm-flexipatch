@@ -30,7 +30,11 @@ width_status2d(Bar *bar, BarArg *a)
 	#else
 	width = status2dtextlength(stext);
 	#endif // #if BAR_EXTRASTATUS_PATCH | BAR_STATUSCMD_PATCH
+#if BAR_STATUS2D_NO_PADDING_PATCH
+	return width;
+#else
 	return width ? width + lrpad : 0;
+#endif // BAR_STATUS2D_NO_PADDING_PATCH
 }
 
 #if BAR_EXTRASTATUS_PATCH
@@ -98,7 +102,9 @@ drawstatusbar(BarArg *a, char* stext)
 	#endif // BAR_STATUSCMD_PATCH
 	text[len] = '\0';
 
+#if !BAR_STATUS2D_NO_PADDING_PATCH
 	x += lrpad / 2;
+#endif // BAR_STATUS2D_NO_PADDING_PATCH
 	drw_setscheme(drw, scheme[LENGTH(colors)]);
 	drw->scheme[ColFg] = scheme[SchemeNorm][ColFg];
 	drw->scheme[ColBg] = scheme[SchemeNorm][ColBg];
