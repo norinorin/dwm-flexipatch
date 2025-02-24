@@ -1335,6 +1335,8 @@ static const Key keys[] = {
 	{0,                             XK_NEXT,       spawn,                  {.v = next}},
 	{MODKEY,                        XK_c, 		   spawn, 				   {.v = clearnotifs}},
 	{0, 							XK_Print, 	   spawn, 				   {.v = screenshot}},
+	// windows snipping tool
+	{Mod4Mask|ShiftMask,            XK_c,          spawn,                  {.v = screenshot}},
 	// --- CUSTOM KEYS END   ---
 	TAGKEYS(                        XK_1,                                  0)
 	TAGKEYS(                        XK_2,                                  1)
