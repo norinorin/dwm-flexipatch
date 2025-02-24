@@ -117,7 +117,7 @@ drawstatusbar(BarArg *a, char* stext)
 
 			text[i] = '\0';
 			w = TEXTWM(text) - lrpad;
-			drw_text(drw, x, y, w, bh, 0, text, 0, True);
+			drw_text(drw, x, y + status2dohpad, w, bh - status2dohpad * 2, 0, text, 0, True);
 
 			x += w;
 

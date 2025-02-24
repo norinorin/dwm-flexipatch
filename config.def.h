@@ -5,6 +5,7 @@
 #define CMD(...)   { .v = (const char*[]){ __VA_ARGS__, NULL } }
 
 /* appearance */
+static const unsigned int status2dohpad  = 0;  /* horizontal outter padding for status2d's bg */
 #if ROUNDED_CORNERS_PATCH
 static const unsigned int borderpx       = 0;   /* border pixel of windows */
 static const int corner_radius           = 10;
