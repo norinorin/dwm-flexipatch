@@ -1337,6 +1337,7 @@ static const Key keys[] = {
 	{0, 							XK_Print, 	   spawn, 				   {.v = screenshot}},
 	// windows snipping tool
 	{Mod4Mask|ShiftMask,            XK_c,          spawn,                  {.v = screenshot}},
+	{MODKEY,                        XK_e,          spawn,                  SHCMD("xdg-open $HOME")},
 	// --- CUSTOM KEYS END   ---
 	TAGKEYS(                        XK_1,                                  0)
 	TAGKEYS(                        XK_2,                                  1)
