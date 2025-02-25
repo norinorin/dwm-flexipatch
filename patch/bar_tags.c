@@ -50,6 +50,9 @@ draw_tags(Bar *bar, BarArg *a)
 		w = TEXTW(icon);
 		drw_setscheme(drw, scheme[
 			m->tagset[m->seltags] & 1 << i
+#if BAR_ONLY_HIGHLIGHT_TAGS_ON_SELMON_PATCH
+			&& m == selmon
+#endif // BAR_ONLY_HIGHLIGHT_TAGS_ON_SELMON_PATCH
 			? SchemeTagsSel
 			: urg & 1 << i
 			? SchemeUrg

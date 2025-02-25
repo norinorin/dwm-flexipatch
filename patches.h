@@ -429,6 +429,11 @@
  */
 #define BAR_ONLY_HIGHLIGHT_TITLE_ON_SELMON_PATCH 1
 
+/* The same with BAR_ONLY_HIGHLIGHT_TITLE_ON_SELMON_PATCH but for the tags.
+ * Currently only works with BAR_TAGS_PATCH. Will try to add support for other tags as I use them.
+ */
+#define BAR_ONLY_HIGHLIGHT_TAGS_ON_SELMON_PATCH 1
+
 /* This patch enables colored text in the status bar. It changes the way colors are defined
  * in config.h allowing multiple color combinations for use in the status script.
  * This patch is incompatible with and takes precedence over the status2d patch.
