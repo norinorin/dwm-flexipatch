@@ -1325,15 +1325,20 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_Escape,     mpdcontrol,             {0} },
 	#endif // MPDCONTROL_PATCH
 	// --- CUSTOM KEYS START ---
-	{MODKEY,                        XK_F9,         spawn,                  {.v = mutevol}},
-	{MODKEY,                        XK_F11,        spawn,                  {.v = downvol}},
-	{MODKEY,                        XK_F12,        spawn,                  {.v = upvol}},
 	{0,                             XK_MUTE,       spawn,                  {.v = mutevol}},
 	{0,                             XK_VOLDOWN,    spawn,                  {.v = downvol}},
 	{0,                             XK_VOLUP,      spawn,                  {.v = upvol}},
 	{0,                             XK_PLAY,       spawn,                  {.v = playpause}},
 	{0,                             XK_PREV,       spawn,                  {.v = previous}},
 	{0,                             XK_NEXT,       spawn,                  {.v = next}},
+	// fallback if kanata isn't running
+	// this uses Mod1Mask eventhough MODKEY == Mod1Mask in case I change MODKEY in the future
+	{Mod1Mask,                      XK_F9,         spawn,                  {.v = mutevol}},
+	{Mod1Mask,                      XK_F11,        spawn,                  {.v = downvol}},
+	{Mod1Mask,                      XK_F12,        spawn,                  {.v = upvol}},
+	{Mod1Mask,                      XK_Print,      spawn,                  {.v = playpause}},
+	{Mod1Mask,                      XK_Page_Up,    spawn,                  {.v = previous}},
+	{Mod1Mask,                      XK_Page_Down,  spawn,                  {.v = next}},
 	{MODKEY,                        XK_c, 		   spawn, 				   {.v = clearnotifs}},
 	{0, 							XK_Print, 	   spawn, 				   {.v = screenshot}},
 	// windows snipping tool
