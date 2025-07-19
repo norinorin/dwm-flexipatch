@@ -1086,6 +1086,7 @@ static const char *next[] = {"playerctl", "next", NULL};
 static const char *previous[] = {"playerctl", "previous", NULL};
 static const char *screenshot[] = {"flameshot", "gui", NULL};
 static const char *clearnotifs[] = {"dunstctl", "close-all", NULL};
+static const char *lockscreen[] = {"xlock", "-mode", "rain", NULL};
 // --- CUSTOM COMMANDS END   ---
 
 static const Key keys[] = {
@@ -1643,7 +1644,9 @@ static const Key keys[] = {
     {Mod1Mask, XK_Print, spawn, {.v = playpause}},
     {Mod1Mask, XK_Page_Up, spawn, {.v = previous}},
     {Mod1Mask, XK_Page_Down, spawn, {.v = next}},
+
     {MODKEY | ShiftMask, XK_c, spawn, {.v = clearnotifs}},
+    {MODKEY | Mod1Mask, XK_l, spawn, {.v = lockscreen}},
     {0, XK_Print, spawn, {.v = screenshot}},
     // windows snipping tool
     {Mod4Mask | ShiftMask, XK_s, spawn, {.v = screenshot}},
