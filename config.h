@@ -1095,8 +1095,6 @@ static const Key keys[] = {
 #if KEYMODES_PATCH
     {MODKEY, XK_Escape, setkeymode, {.ui = COMMANDMODE}},
 #endif // KEYMODES_PATCH
-    {MODKEY, XK_d, spawn, {.v = dmenucmd}},
-    {MODKEY, XK_Return, spawn, {.v = termcmd}},
 #if RIODRAW_PATCH
     {MODKEY | ControlMask, XK_p, riospawnsync, {.v = dmenucmd}},
     {MODKEY | ControlMask, XK_Return, riospawn, {.v = termcmd}},
@@ -1629,6 +1627,9 @@ static const Key keys[] = {
     {MODKEY, XK_Escape, mpdcontrol, {0}},
 #endif // MPDCONTROL_PATCH
     // --- CUSTOM KEYS START ---
+    {MODKEY, XK_d, spawn, {.v = dmenucmd}},
+    {MODKEY, XK_Return, spawn, {.v = termcmd}},
+    {MODKEY | ShiftMask, XK_t, spawn, {.v = termcmd}},
     {0, XK_MUTE, spawn, {.v = mutevol}},
     {0, XK_VOLDOWN, spawn, {.v = downvol}},
     {0, XK_VOLUP, spawn, {.v = upvol}},
